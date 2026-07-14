@@ -2,8 +2,11 @@ from flask import Flask, render_template, request
 import joblib
 import numpy as np
 
+from config import SECRET_KEY
+
 app = Flask(__name__)
 
+app.config["SECRET_KEY"] = SECRET_KEY
 # -------------------------------------
 # Load Model
 # -------------------------------------
