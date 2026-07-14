@@ -1,1 +1,143 @@
+{% extends "layout.html" %}
 
+{% block title %}
+Prediction Result
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-10">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-header bg-success text-white text-center">
+
+                    <h2>
+                        🎯 HDI Prediction Result
+                    </h2>
+
+                </div>
+
+                <div class="card-body">
+
+                    <!-- Prediction -->
+
+                    <div class="text-center mb-4">
+
+                        <h1 class="display-4 text-success fw-bold">
+
+                            {{ prediction }}
+
+                        </h1>
+
+                        <h4>
+
+                            Confidence Score
+
+                        </h4>
+
+                        <h2 class="text-primary">
+
+                            {{ confidence }} %
+
+                        </h2>
+
+                    </div>
+
+                    <hr>
+
+                    <!-- User Inputs -->
+
+                    <h3 class="mb-3">
+
+                        📊 Input Summary
+
+                    </h3>
+
+                    <table class="table table-bordered table-striped">
+
+                        <tr>
+
+                            <th>Life Expectancy</th>
+
+                            <td>{{ life }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Expected Years of Schooling</th>
+
+                            <td>{{ expected }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Mean Years of Schooling</th>
+
+                            <td>{{ mean }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>GNI Per Capita</th>
+
+                            <td>${{ gni }}</td>
+
+                        </tr>
+
+                    </table>
+
+                    <hr>
+
+                    <!-- Recommendation -->
+
+                    <h3>
+
+                        💡 Recommendations
+
+                    </h3>
+
+                    <ul class="list-group">
+
+                        {% for item in recommendation %}
+
+                        <li class="list-group-item">
+
+                            ✅ {{ item }}
+
+                        </li>
+
+                        {% endfor %}
+
+                    </ul>
+
+                    <div class="text-center mt-5">
+
+                        <a href="/"
+
+                           class="btn btn-primary btn-lg">
+
+                            🔄 Predict Again
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
