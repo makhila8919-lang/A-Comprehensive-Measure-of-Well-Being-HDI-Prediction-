@@ -4,6 +4,9 @@ import numpy as np
 
 from config import SECRET_KEY
 
+from config import MODEL_PATH, ENCODER_PATH
+
+
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = SECRET_KEY
@@ -11,8 +14,8 @@ app.config["SECRET_KEY"] = SECRET_KEY
 # Load Model
 # -------------------------------------
 
-model = joblib.load("models/hdi_model.pkl")
-encoder = joblib.load("models/label_encoder.pkl")
+model = joblib.load(MODEL_PATH)
+encoder = joblib.load(ENCODER_PATH)
 
 
 # -------------------------------------
@@ -53,7 +56,9 @@ def get_recommendation(category):
 
     }
 
-    return recommendations.get(category, [])
+    return recommendations.get(
+    category,
+    ["No recommendation available."])
 
 
 # -------------------------------------
@@ -94,9 +99,15 @@ def predict():
 
         prediction = model.predict(features)
 
-        probability = model.predict_proba(features)
+        if hasattr(model, "predict_proba"):
 
-        confidence = round(np.max(probability) * 100, 2)
+            probability = model.predict_proba(features)
+
+            confidence = round(np.max(probability) * 100, 2)
+
+        else:
+
+    c        onfidence = 100
 
         category = encoder.inverse_transform(prediction)[0]
 
@@ -163,4 +174,9 @@ def contact():
 
 if __name__ == "__main__":
 
-    app.run(debug=True)
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+            
+    )
