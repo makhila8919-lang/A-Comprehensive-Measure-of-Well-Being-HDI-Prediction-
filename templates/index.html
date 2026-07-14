@@ -1,1 +1,379 @@
+{% extends "layout.html" %}
 
+{% block title %}
+HDI Prediction System
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<div class="row align-items-center">
+
+    <div class="col-lg-6">
+
+        <h1 class="display-4 fw-bold text-primary">
+
+            Human Development Index Prediction
+
+        </h1>
+
+        <p class="lead mt-4">
+
+            Predict the Human Development Index (HDI) category of a country
+            using Machine Learning based on four important development
+            indicators.
+
+        </p>
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+                ✅ Life Expectancy
+            </li>
+
+            <li class="list-group-item">
+                ✅ Mean Years of Schooling
+            </li>
+
+            <li class="list-group-item">
+                ✅ Expected Years of Schooling
+            </li>
+
+            <li class="list-group-item">
+                ✅ Gross National Income Per Capita
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="col-lg-6 text-center">
+
+        <img src="{{ url_for('static', filename='images/banner.png') }}"
+             class="img-fluid"
+             alt="HDI">
+
+    </div>
+
+</div>
+
+<hr class="my-5">
+
+<!-- ================= PROJECT INFO ================= -->
+
+<div class="row text-center">
+
+    <div class="col-md-3">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body">
+
+                <h1>🌍</h1>
+
+                <h5>Health</h5>
+
+                <p>
+
+                    Life expectancy represents the health status of a country.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body">
+
+                <h1>🎓</h1>
+
+                <h5>Education</h5>
+
+                <p>
+
+                    Mean and Expected Years of Schooling measure education.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body">
+
+                <h1>💰</h1>
+
+                <h5>Income</h5>
+
+                <p>
+
+                    Gross National Income Per Capita measures living standards.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow h-100">
+
+            <div class="card-body">
+
+                <h1>🤖</h1>
+
+                <h5>Machine Learning</h5>
+
+                <p>
+
+                    Random Forest predicts HDI Category accurately.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<hr class="my-5">
+
+<!-- ================= FORM ================= -->
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-lg">
+
+            <div class="card-header bg-primary text-white">
+
+                <h3 class="text-center">
+
+                    Predict HDI Category
+
+                </h3>
+
+            </div>
+
+            <div class="card-body">
+
+                <form action="/predict" method="POST">
+
+                    <!-- Life Expectancy -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Life Expectancy at Birth
+
+                        </label>
+
+                        <input
+
+                            type="number"
+
+                            step="0.01"
+
+                            name="life"
+
+                            class="form-control"
+
+                            placeholder="Example: 72.5"
+
+                            required>
+
+                    </div>
+
+                    <!-- Expected Schooling -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Expected Years of Schooling
+
+                        </label>
+
+                        <input
+
+                            type="number"
+
+                            step="0.01"
+
+                            name="expected"
+
+                            class="form-control"
+
+                            placeholder="Example: 16.4"
+
+                            required>
+
+                    </div>
+
+                    <!-- Mean Schooling -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Mean Years of Schooling
+
+                        </label>
+
+                        <input
+
+                            type="number"
+
+                            step="0.01"
+
+                            name="mean"
+
+                            class="form-control"
+
+                            placeholder="Example: 12.3"
+
+                            required>
+
+                    </div>
+
+                    <!-- GNI -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+
+                            Gross National Income Per Capita (USD)
+
+                        </label>
+
+                        <input
+
+                            type="number"
+
+                            step="0.01"
+
+                            name="gni"
+
+                            class="form-control"
+
+                            placeholder="Example: 25800"
+
+                            required>
+
+                    </div>
+
+                    <div class="d-grid">
+
+                        <button
+
+                            class="btn btn-primary btn-lg"
+
+                            type="submit">
+
+                            Predict HDI
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<hr class="my-5">
+
+<!-- ================= FOOTER INFO ================= -->
+
+<div class="row">
+
+    <div class="col-md-4">
+
+        <div class="card shadow">
+
+            <div class="card-body text-center">
+
+                <h3>🎯 Objective</h3>
+
+                <p>
+
+                    Predict Human Development category using Artificial
+                    Intelligence.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow">
+
+            <div class="card-body text-center">
+
+                <h3>📈 Model</h3>
+
+                <p>
+
+                    Random Forest Classifier trained on UNDP Human
+                    Development data.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow">
+
+            <div class="card-body text-center">
+
+                <h3>Deployment</h3>
+
+                <p>
+
+                    Flask Web Application deployed on Render.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
