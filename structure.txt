@@ -1,70 +1,37 @@
-A-Comprehensive-Measure-of-Well-Being-HDI-Prediction/
+A-Comprehensive-Measure-of-Well-Being-HDI-Prediction
 │
-├── app.py                          # Flask application
-├── train_model.py                  # Model training script
-├── predict.py                      # Prediction helper
-├── config.py                       # Configuration variables
-├── requirements.txt                # Python dependencies
-├── README.md                       # Project documentation
-├── .gitignore                      # Ignore unnecessary files
-├── LICENSE                         # MIT License
+├── app.py
+├── train_model.py
+├── config.py
+├── requirements.txt
+├── README.md
+├── LICENSE
+├── .gitignore
 │
 ├── dataset/
-│   ├── Human_Development_Data.csv
-│   ├── cleaned_hdi.csv
-│   └── sample_input.csv
+│      Human_Development_Data.csv
 │
 ├── models/
-│   ├── hdi_model.pkl
-│   ├── scaler.pkl
-│   └── label_encoder.pkl
-│
-├── notebooks/
-│   └── EDA.ipynb
-│
-├── utils/
-│   ├── preprocessing.py
-│   ├── feature_engineering.py
-│   ├── evaluation.py
-│   └── visualization.py
+│      hdi_model.pkl
+│      label_encoder.pkl
 │
 ├── templates/
-│   ├── index.html
-│   ├── prediction.html
-│   ├── result.html
-│   ├── about.html
-│   ├── contact.html
-│   └── layout.html
+│      layout.html
+│      index.html
+│      result.html
+│      about.html
+│      contact.html
 │
 ├── static/
-│   ├── css/
-│   │      style.css
-│   │      responsive.css
-│   │
-│   ├── js/
-│   │      script.js
-│   │
-│   ├── images/
-│   │      logo.png
-│   │      banner.png
-│   │      hdi.png
-│   │
-│   └── charts/
-│          feature_importance.png
-│          confusion_matrix.png
-│          hdi_distribution.png
+│      css/
+│           style.css
 │
-├── screenshots/
-│   ├── homepage.png
-│   ├── prediction.png
-│   ├── result.png
-│   └── dashboard.png
+│      js/
+│           script.js
 │
-├── deployment/
-│   ├── Procfile
-│   ├── runtime.txt
-│   └── render.yaml
+│      images/
 │
-└── docs/
-    ├── Project_Report.pdf
-    └── Presentation.pptx
+└── utils/
+       preprocessing.py
+       evaluation.py
+       visualization.py
