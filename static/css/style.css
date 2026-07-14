@@ -1,1 +1,290 @@
+/* ===========================
+   GENERAL
+=========================== */
 
+body{
+    background:#f4f7fb;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    color:#333;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    animation:fadeIn .8s ease;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+    box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+
+.navbar-brand{
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
+.nav-link{
+    color:#fff !important;
+    font-size:16px;
+    margin-left:10px;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#ffe082 !important;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.display-4{
+    color:#0d6efd;
+    font-weight:700;
+}
+
+.lead{
+    color:#555;
+}
+
+img{
+    max-width:100%;
+}
+
+/* ===========================
+   CARDS
+=========================== */
+
+.card{
+    border:none;
+    border-radius:15px;
+    transition:.4s;
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+}
+
+.card-header{
+
+    border-radius:15px 15px 0 0 !important;
+
+}
+
+.card-body{
+
+    padding:30px;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.btn{
+
+    border-radius:10px;
+
+    transition:.4s;
+
+}
+
+.btn-primary:hover{
+
+    transform:scale(1.03);
+
+}
+
+.btn-success:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* ===========================
+   FORM
+=========================== */
+
+.form-control{
+
+    border-radius:10px;
+
+    height:48px;
+
+}
+
+.form-control:focus{
+
+    box-shadow:0 0 8px rgba(13,110,253,.4);
+
+    border-color:#0d6efd;
+
+}
+
+/* ===========================
+   TABLE
+=========================== */
+
+table{
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+th{
+
+    width:45%;
+
+    background:#f8f9fa;
+
+}
+
+/* ===========================
+   LIST GROUP
+=========================== */
+
+.list-group-item{
+
+    border:none;
+
+    border-bottom:1px solid #eee;
+
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+
+    margin-top:60px;
+
+}
+
+footer h5{
+
+    font-weight:bold;
+
+}
+
+footer p{
+
+    margin-bottom:5px;
+
+}
+
+/* ===========================
+   BADGES
+=========================== */
+
+.badge{
+
+    font-size:15px;
+
+    padding:10px;
+
+}
+
+/* ===========================
+   SHADOWS
+=========================== */
+
+.shadow-lg{
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15)!important;
+
+}
+
+/* ===========================
+   ICONS
+=========================== */
+
+h1{
+
+    transition:.4s;
+
+}
+
+h1:hover{
+
+    transform:scale(1.1);
+
+}
+
+/* ===========================
+   RESULT PAGE
+=========================== */
+
+.display-4{
+
+    letter-spacing:1px;
+
+}
+
+.text-success{
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.display-4{
+
+font-size:2rem;
+
+}
+
+.card-body{
+
+padding:20px;
+
+}
+
+.navbar-brand{
+
+font-size:20px;
+
+}
+
+}
