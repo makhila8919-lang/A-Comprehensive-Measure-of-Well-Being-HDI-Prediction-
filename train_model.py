@@ -1,6 +1,8 @@
 import pandas as pd
 import joblib
+from config import ENCODER_PATH
 
+from config import MODEL_PATH
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
@@ -11,6 +13,9 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 # -----------------------------
 
 df = pd.read_csv("dataset/Human_Development_Data.csv")
+print("\nDataset Columns:\n")
+
+print(df.columns.tolist())
 
 print(df.head())
 print(df.info())
@@ -78,7 +83,7 @@ y_encoded = encoder.fit_transform(y)
 
 # Save Encoder
 
-joblib.dump(encoder, "models/label_encoder.pkl")
+joblib.dump(encoder, ENCODER_PATH)
 
 # -----------------------------
 # Train Test Split
@@ -128,6 +133,6 @@ print(confusion_matrix(y_test, pred))
 # Save Model
 # -----------------------------
 
-joblib.dump(model, "models/hdi_model.pkl")
+joblib.dump(model, MODEL_PATH)
 
 print("\nModel Saved Successfully")
