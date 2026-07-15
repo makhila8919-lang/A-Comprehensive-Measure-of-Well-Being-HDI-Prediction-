@@ -107,7 +107,7 @@ def predict():
 
         else:
 
-    c        onfidence = 100
+            confidence = 100
 
         category = encoder.inverse_transform(prediction)[0]
 
