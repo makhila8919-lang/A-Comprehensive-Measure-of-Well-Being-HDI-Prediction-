@@ -1,1 +1,21 @@
-
+Life Expectancy,Expected Years of Schooling,Mean Years of Schooling,GNI per Capita,HDI Category
+52,8.5,4.2,1200,Low
+54,9.0,4.8,1500,Low
+56,9.5,5.2,1800,Low
+58,10.0,5.8,2200,Low
+60,10.5,6.5,3000,Medium
+62,11.0,7.0,4000,Medium
+64,11.5,7.5,5000,Medium
+66,12.0,8.0,6500,Medium
+68,12.5,8.8,8000,Medium
+70,13.0,9.5,10000,High
+72,13.5,10.5,12000,High
+74,14.0,11.2,15000,High
+76,14.5,12.0,20000,High
+78,15.0,13.0,30000,Very High
+80,15.5,13.5,40000,Very High
+82,16.0,14.0,50000,Very High
+79,15.8,13.8,45000,Very High
+75,14.8,12.5,25000,High
+67,12.2,8.4,7000,Medium
+55,9.2,5.0,1700,Low
