@@ -1,8 +1,12 @@
 import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
-SECRET_KEY = "HDI_PROJECT_SECRET_KEY"
+SECRET_KEY = os.environ.get("SECRET_KEY", "HDI_PROJECT_SECRET_KEY")
 
 DATASET_PATH = os.path.join(
     BASE_DIR,

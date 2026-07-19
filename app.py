@@ -1,10 +1,37 @@
 from flask import Flask, render_template, request
+import os
+import logging
 import joblib
 import numpy as np
 
 from config import SECRET_KEY
 
 from config import MODEL_PATH, ENCODER_PATH
+
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
+# -------------------------------------
+# Input Validation
+# -------------------------------------
+
+VALID_RANGES = {
+    "life": ("Life Expectancy", 0, 100),
+    "expected": ("Expected Years of Schooling", 0, 25),
+    "mean": ("Mean Years of Schooling", 0, 25),
+    "gni": ("GNI Per Capita", 0, 200000),
+}
+
+
+def validate_inputs(values):
+    """Return an error message string if any value is out of range, else None."""
+    for key, (label, low, high) in VALID_RANGES.items():
+        value = values[key]
+        if not (low <= value <= high):
+            return f"{label} must be between {low} and {high}."
+    return None
 
 
 app = Flask(__name__)
@@ -88,6 +115,32 @@ def predict():
 
         gni = float(request.form["gni"])
 
+        error = validate_inputs(
+            {"life": life, "expected": expected, "mean": mean, "gni": gni}
+        )
+
+        if error:
+
+            return render_template(
+
+                "result.html",
+
+                prediction="Invalid Input",
+
+                confidence=0,
+
+                recommendation=[error],
+
+                life=life,
+
+                expected=expected,
+
+                mean=mean,
+
+                gni=gni
+
+            )
+
         features = np.array([[
 
             life,
@@ -133,7 +186,9 @@ def predict():
 
         )
 
-    except Exception as e:
+    except Exception:
+
+        logger.exception("Prediction failed")
 
         return render_template(
 
@@ -143,7 +198,7 @@ def predict():
 
             confidence=0,
 
-            recommendation=[str(e)]
+            recommendation=["Something went wrong while processing your request. Please check your inputs and try again."]
 
         )
 
@@ -177,6 +232,5 @@ if __name__ == "__main__":
     app.run(
         host="0.0.0.0",
         port=5000,
-        debug=True
-            
+        debug=os.environ.get("FLASK_DEBUG", "false").lower() in ("1", "true", "yes")
     )

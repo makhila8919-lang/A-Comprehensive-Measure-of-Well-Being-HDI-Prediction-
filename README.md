@@ -64,7 +64,7 @@ A-Comprehensive-Measure-of-Well-Being-HDI-Prediction/
 
 Dataset Source
 
-United Nations Development Programme (UNDP)
+United Nations Development Programme (UNDP) — Human Development Report 2025 composite indices (2023 data)
 
 Features
 
@@ -73,6 +73,8 @@ Features
 - Mean Years of Schooling
 - GNI Per Capita
 - HDI Value
+
+The dataset contains 204 countries (2023 data).
 
 ---
 
@@ -86,6 +88,14 @@ Other algorithms compared
 
 - Decision Tree
 - Logistic Regression
+
+---
+
+# Model Performance
+
+Accuracy: 87.8%
+
+Low vs Medium HDI countries are the hardest to distinguish (weakest class recall 0.67).
 
 ---
 
